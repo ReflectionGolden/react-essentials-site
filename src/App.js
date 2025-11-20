@@ -26,6 +26,7 @@ function App() {
         bio="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin id enim sed lectus sagittis tincidunt id eget risus. Curabitur id nibh rutrum, laoreet neque eu, sollicitudin eros. Nam in nunc egestas, porta metus non, mollis diam. Donec accumsan tellus purus, et ultrices est tristique ut."
         skills={["Test skill", "Example 2", "Another example"]}
         />
+        <VariableDisplay/>
       </div>
     </div>
   );
@@ -51,6 +52,29 @@ function ProfileCard(props) {
         </div>
         <p></p>
       </div>
+    </div>
+  )
+}
+
+function VariableDisplay() {
+  let stringVar = "Hello World";
+  let numVar = 42;
+  let boolVar = true;
+  let strArrayVar = ["Element 1", "Element 2", "Another Element"];
+  let objVar = {name: "Josh", age: 28, hairColour: "Black"};
+
+  return (
+    <div>
+      <h2>Variable Display</h2>
+      <p>This component is here to showcase the way to make use of variables within JSX, as they need to be inside curled brackets to be read as JavaScript before the value is displayed.</p>
+      <p>String Variable: {stringVar}</p>
+      <p>Number Variable: {numVar}</p>
+      <p>Boolean variable: {boolVar.toString()}</p>
+      <p>String Array Variable: {strArrayVar.join(", ")}</p>
+      <h3>Object Properties</h3>
+      <p>Object Name: {objVar.name}</p>
+      <p>Object Age: {objVar.age}</p>
+      <p>Object Hair Colour: {objVar.hairColour}</p>
     </div>
   )
 }
