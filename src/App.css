@@ -25,6 +25,13 @@
   color: #61dafb;
 }
 
+.Component-Container {
+  border: 3px solid antiquewhite;
+  border-radius: 2rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
 .Profile-card {
   display: grid;
   grid-template-areas: 
