@@ -14,18 +14,74 @@
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  min-height: 25vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  border: solid;
 }
 
 .App-link {
   color: #61dafb;
+}
+
+.Component-Container {
+  border: 3px solid antiquewhite;
+  border-radius: 2rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.Profile-card {
+  display: grid;
+  grid-template-areas: 
+  "header header"
+  "skills skills"
+  "image content";
+  grid-template-columns: 1fr 3fr;
+  gap: 3px;
+  background-color: antiquewhite;
+  padding: 5px;
+  margin: 5px 15%;
+}
+
+@media (min-width: 992px) {
+  .Profile-card {margin: 5px 25%;}
+}
+
+.Profile-card div {
+  background-color: #282c34;
+}
+
+.Profile-card div.header {
+  grid-area: header;
+}
+
+.Profile-card div.skills {
+  grid-area: skills;
+}
+
+.Profile-card div.image {
+  grid-area: image;
+  display: grid;
+  place-items: center;
+  padding: 3px;
+}
+
+.Profile-card div.image img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.Profile-card div.content {
+  grid-area: content;
+  display: flex;
+  align-items: center;
+  text-align: left;
+}
+
+.Profile-card div.content div {
+  display: block;
 }
 
 @keyframes App-logo-spin {
