@@ -1,15 +1,36 @@
+import { useState } from 'react';
 import man from './man-silhouette.png';
 import woman from './woman-silhouette.png';
 import './App.css';
+import ModuleThreePage from './course_modules/Module3';
+import NavigationBar from './Navigation';
 
 function App() {
+  const [currentPage, setPage] = useState("2");
+
+  function ChangePage(Module) {
+    setPage(Module);
+  }
+
+  function SetModulePage(Module) {
+    switch (Module) {
+      case "2":
+        return(<ModuleTwoPage/>);
+      case "3":
+        return(<ModuleThreePage/>);
+      default:
+        return(<ModuleTwoPage/>);
+    }
+  }
+
   return (
     <div className="App">
       <header className="App-header">
         <h1>React Essentials Site</h1>
         <p>This project is here to demonstrate the use of ReactJS for the creation of a website.</p>
       </header>
-      <ModuleTwoPage/>
+      <NavigationBar ChangePage={ChangePage}/>
+      {SetModulePage(currentPage)}
     </div>
   );
 }
@@ -129,5 +150,7 @@ function JobBoard() {
     </div>
   )
 }
+
+
 
 export default App;
