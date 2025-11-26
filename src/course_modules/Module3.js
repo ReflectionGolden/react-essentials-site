@@ -9,6 +9,9 @@ function ModuleThreePage() {
             <div className='Component-Container'>
                 <InlineStyle />
             </div>
+            <div className='Component-Container'>
+                <JobCounter />
+            </div>
         </div>
     );
 }
@@ -42,6 +45,21 @@ function InlineStyle() {
             <p>
                 This component is showing the use of variables within a component to do inline styling by showing a heading and two buttons with different styling to ones in other areas. The buttons are set up so that one is disabled and the other isn't, but when either is clicked they switch which one is disabled.
             </p>
+        </div>
+    );
+}
+
+function JobCounter() {
+    const [jobCount, setJobCount] = useState(0);
+    function AddJob() {
+        setJobCount(jobCount+1);
+    }
+    return (
+        <div>
+            <h2>Job Counter Component</h2>
+            <p>Current Job Count: {jobCount}</p>
+            <button className='Generic-button' onClick={AddJob}>Add Job</button>
+            <p>This component shows the use of states and events to increment a number upon a button-click. This functionality is also demonstrated by the different module pages and the buttons to swap between them, seen in the navigation at the top of the page.</p>
         </div>
     );
 }

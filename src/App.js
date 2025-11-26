@@ -6,7 +6,7 @@ import ModuleThreePage from './course_modules/Module3';
 import NavigationBar from './Navigation';
 
 function App() {
-  const [currentPage, setPage] = useState("2");
+  const [currentPage, setPage] = useState("3");
 
   function ChangePage(Module) {
     setPage(Module);
