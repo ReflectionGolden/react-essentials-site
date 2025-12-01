@@ -12,6 +12,9 @@ function ModuleThreePage() {
             <div className='Component-Container'>
                 <JobCounter />
             </div>
+            <div className='Component-Container'>
+                <DynamicForm />
+            </div>
         </div>
     );
 }
@@ -108,6 +111,65 @@ function UATCounter({isHidden}) {
             <button className='Generic-button' onClick={AddJobUAT}>Add Job</button>
             <button className='Generic-button' onClick={RemoveJobUAT}>Remove Job</button>
             <button className='Generic-button' onClick={ResetJobsUAT}>Reset Job Count</button>
+        </div>
+    );
+}
+
+function DynamicForm() {
+    const [nameVal, setNameVal] = useState("");
+    const [submitted, updateSubmitted] = useState([]);
+    let nextId = 0;
+
+    const handleInputChange = (event) => {
+        let name = event.target.value;
+        setNameVal(name);
+    }
+
+    function handleReset() {
+        setNameVal("");
+    }
+
+    function handleValidation() {
+        let formIsValid = true;
+        if(nameVal.length < 1) {
+            formIsValid = false;
+            alert("You cannot submit an empty name field");
+        }
+        return formIsValid;
+    }
+
+    function handleSubmission(e) {
+        e.preventDefault();
+        if(handleValidation()) {
+            updateSubmitted([...submitted, { id: nextId++, name: nameVal}]);
+        }
+    }
+
+    return (
+        <div>
+            <h2>Dynamic Form Component</h2>
+            <p>
+                This component is to demonstrate the use of UseState to dynamically update the rendering of the page by updating a display area with information provided to an input.
+            </p>
+            <form onSubmit={e => handleSubmission(e)}>
+                <input 
+                    type="text"
+                    maxLength={50}
+                    value={nameVal} 
+                    placeholder='Enter Name' 
+                    onChange={handleInputChange}
+                />
+                <p>Name entered: {nameVal}</p>
+                <button className='Generic-button' id='submit' value="submit">Submit</button>
+            </form>
+            <button className='Generic-button' onClick={handleReset}>Reset Input</button>
+            
+            <p>List of submitted names:</p>
+            <ul className='Listing'>
+                {submitted.map(person => (
+                    <li key={person.id}>{person.name}</li>
+                ))}
+            </ul>
         </div>
     );
 }

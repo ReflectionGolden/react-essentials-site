@@ -33,8 +33,7 @@
 }
 
 .Generic-button {
-  margin-left:  0.5rem;
-  margin-right: 0.5rem;
+  margin: 0.5rem;
   font-size: x-large;
   color: #e6e6e6;
   border: 2px solid antiquewhite;
@@ -137,3 +136,10 @@
 }
 
 /* Module 3 styles */
+
+.Listing {
+  margin: auto;
+  width: fit-content;
+  text-align: left;
+  margin-bottom: 1rem;
+}
