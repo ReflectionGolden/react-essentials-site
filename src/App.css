@@ -32,6 +32,57 @@
   margin-bottom: 1rem;
 }
 
+.Generic-button {
+  margin: 0.5rem;
+  font-size: x-large;
+  color: #e6e6e6;
+  border: 2px solid antiquewhite;
+  border-radius: 5px;
+  background-color: #155dfb;
+  transition: 0.1s;
+}
+
+.Generic-button:hover {
+  background-color: #2b7fff;
+  box-shadow: 0.2rem 0.2rem black;
+}
+
+.Generic-button:active {
+  background-color: #1447e6;
+  transform: translate(2px 6px);
+  box-shadow: none;
+}
+
+/* Navbar Styles */
+
+.Nav-bar {
+  display: flexbox;
+  margin-top: 0.5rem;
+}
+
+.Nav-button {
+  margin-left:  0.5rem;
+  margin-right: 0.5rem;
+  font-size: x-large;
+  color: white;
+  border: 2px solid antiquewhite;
+  border-radius: 5px;
+  background-color: #121842;
+  transition: 0.1s;
+}
+
+.Nav-button:hover {
+  background-color: #243684;
+  box-shadow: 0.2rem 0.2rem black;
+}
+
+.Nav-button:active {
+  transform: translate(2px 6px);
+  box-shadow: none;
+}
+
+/* Module 2 styles */
+
 .Profile-card {
   display: grid;
   grid-template-areas: 
@@ -84,11 +135,11 @@
   display: block;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Module 3 styles */
+
+.Listing {
+  margin: auto;
+  width: fit-content;
+  text-align: left;
+  margin-bottom: 1rem;
 }
