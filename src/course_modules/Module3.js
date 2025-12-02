@@ -149,7 +149,9 @@ function DynamicForm() {
         <div>
             <h2>Dynamic Form Component</h2>
             <p>
-                This component is to demonstrate the use of UseState to dynamically update the rendering of the page by updating a display area with information provided to an input.
+                This component is to demonstrate the use of UseState to dynamically update the rendering of the page by updating a display area with information provided to a validated input.
+                <br />
+                It also demonstrates the use of the array map method to display an array as an unordered list (as seen with "submitted" names). 
             </p>
             <form onSubmit={e => handleSubmission(e)}>
                 <input 
