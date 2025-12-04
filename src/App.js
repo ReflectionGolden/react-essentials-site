@@ -3,10 +3,11 @@ import man from './man-silhouette.png';
 import woman from './woman-silhouette.png';
 import './App.css';
 import ModuleThreePage from './course_modules/Module3';
+import ModuleFourPage from './course_modules/Module4';
 import NavigationBar from './Navigation';
 
 function App() {
-  const [currentPage, setPage] = useState("3");
+  const [currentPage, setPage] = useState("4");
 
   function ChangePage(Module) {
     setPage(Module);
@@ -18,6 +19,8 @@ function App() {
         return(<ModuleTwoPage/>);
       case "3":
         return(<ModuleThreePage/>);
+      case "4":
+        return(<ModuleFourPage/>);
       default:
         return(<ModuleTwoPage/>);
     }
