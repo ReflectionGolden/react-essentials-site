@@ -45,7 +45,7 @@ function ModuleTwoPage() {
       <p>The components you see here were created in accordance with Module 2 of the React Essentials course by ITOL.</p>
       <div className='Component-Container'>
         <h2>Profile Card component</h2>
-        <p>These "Profile Cards" make use of a reusable component, showcasing componenets and their ability to be reused for display purposes. They make use of Props to be ableto send through images, names, job titles, and a bio for the person being referenced. Due to these being examples, I have chosen to use silhouette heads for the imagesand Lorem Ipsum text for the bios.</p>
+        <p>These "Profile Cards" make use of a reusable component, showcasing componenets and their ability to be reused for display purposes. They make use of Props to be able to send through images, names, job titles, and a bio for the person being referenced. Due to these being examples, I have chosen to use silhouette heads for the images and Lorem Ipsum text for the bios.</p>
         <ProfileCard 
           img={man} 
           name="John Smith"
