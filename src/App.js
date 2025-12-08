@@ -30,7 +30,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1>React Essentials Site</h1>
-        <p>This project is here to demonstrate the use of ReactJS for the creation of a website.</p>
+        <p>This project is here to demonstrate the use of ReactJS for the creation of a website/web app.</p>
       </header>
       <NavigationBar ChangePage={ChangePage}/>
       {SetModulePage(currentPage)}

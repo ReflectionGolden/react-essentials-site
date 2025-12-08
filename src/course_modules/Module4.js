@@ -85,6 +85,9 @@ function DynamicBotManager() {
     return (
         <div>
             <h2>Dynamic Bot Manager Component</h2>
+            <p>
+                This component showcases the use of the state of a component to create a dynamic listing of "bots" for a hypothetical system, with the ability to add and delete bots to expand or trim down the list. It also makes use of conditional rendering by setting the colour of the bot in the display list based on the status it has.
+            </p>
             <div className='Bot-Inputs'>
                 <h3>Bot Creation</h3>
                 <form onSubmit={e => handleSubmission(e)}>
@@ -114,7 +117,10 @@ function DynamicBotManager() {
                 <h3>Current Bot list</h3>
                 <ul className='Listing'>
                     {bots.map(bot => (
-                        <li key={bot.id}>{bot.id}-{bot.name}, Status: {bot.status} <button onClick={() => handleDelete(bot.id)}>Delete</button></li>
+                        <li key={bot.id} style={{color: bot.status === 'Active' ? "green" : bot.status === 'Pending' ? "yellow" : bot.status === 'Inactive' ? "red" : "white"}}>
+                            {bot.id}-{bot.name}, Status: {bot.status}
+                            <button onClick={() => handleDelete(bot.id)}>Delete</button>
+                        </li>
                     ))}
                 </ul>
             </div>
