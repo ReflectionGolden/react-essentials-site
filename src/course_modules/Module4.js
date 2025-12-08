@@ -77,6 +77,11 @@ function DynamicBotManager() {
             alert("Bot submitted");
         }
     }
+
+    function handleDelete(id) {
+        setBots(bots.filter(bot => id !== bot.id));
+    }
+
     return (
         <div>
             <h2>Dynamic Bot Manager Component</h2>
@@ -109,7 +114,7 @@ function DynamicBotManager() {
                 <h3>Current Bot list</h3>
                 <ul className='Listing'>
                     {bots.map(bot => (
-                        <li key={bot.id}>{bot.id}-{bot.name}, Status: {bot.status}</li>
+                        <li key={bot.id}>{bot.id}-{bot.name}, Status: {bot.status} <button onClick={() => handleDelete(bot.id)}>Delete</button></li>
                     ))}
                 </ul>
             </div>
