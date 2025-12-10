@@ -117,15 +117,22 @@ function DynamicBotManager() {
                 <h3>Current Bot list</h3>
                 <ul className='Listing'>
                     {bots.map(bot => (
-                        <li key={bot.id} style={{color: bot.status === 'Active' ? "green" : bot.status === 'Pending' ? "yellow" : bot.status === 'Inactive' ? "red" : "white"}}>
-                            {bot.id}-{bot.name}, Status: {bot.status}
-                            <button onClick={() => handleDelete(bot.id)}>Delete</button>
-                        </li>
+                        <BotDisplayItem bot={bot} handleDelete={handleDelete} />
                     ))}
                 </ul>
             </div>
         </div>
-    )
+    );
+}
+
+function BotDisplayItem(props) {
+    return (
+        <li key={props.bot.id} 
+            style={{color: props.bot.status === 'Active' ? "green" : props.bot.status === 'Pending' ? "yellow" : props.bot.status === 'Inactive' ? "red" : "white"}}>
+            {props.bot.id}-{props.bot.name}, Status: {props.bot.status}
+            <button onClick={() => props.handleDelete(props.bot.id)}>Delete</button>
+        </li>
+    );
 }
 
 export default ModuleFourPage;
