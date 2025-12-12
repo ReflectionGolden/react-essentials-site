@@ -87,6 +87,8 @@ function DynamicBotManager() {
             <h2>Dynamic Bot Manager Component</h2>
             <p>
                 This component showcases the use of the state of a component to create a dynamic listing of "bots" for a hypothetical system, with the ability to add and delete bots to expand or trim down the list. It also makes use of conditional rendering by setting the colour of the bot in the display list based on the status it has.
+                <br />
+                Additionally, this component makes use of props with a second child component (for display) to show the passing of information into a component including using props.children to avoid needing to pass more props than required too far along a chain.
             </p>
             <div className='Bot-Inputs'>
                 <h3>Bot Creation</h3>
@@ -117,7 +119,10 @@ function DynamicBotManager() {
                 <h3>Current Bot list</h3>
                 <ul className='Listing'>
                     {bots.map(bot => (
-                        <BotDisplayItem bot={bot} handleDelete={handleDelete} />
+                        <BotDisplayItem bot={bot}>
+                            {bot.id}-{bot.name}, Status: {bot.status}
+                            <button onClick={() => handleDelete(bot.id)}>Delete</button>
+                        </BotDisplayItem>
                     ))}
                 </ul>
             </div>
@@ -127,10 +132,8 @@ function DynamicBotManager() {
 
 function BotDisplayItem(props) {
     return (
-        <li key={props.bot.id} 
-            style={{color: props.bot.status === 'Active' ? "green" : props.bot.status === 'Pending' ? "yellow" : props.bot.status === 'Inactive' ? "red" : "white"}}>
-            {props.bot.id}-{props.bot.name}, Status: {props.bot.status}
-            <button onClick={() => props.handleDelete(props.bot.id)}>Delete</button>
+        <li key={props.bot.id} style={{color: props.bot.status === 'Active' ? "green" : props.bot.status === 'Pending' ? "yellow" : props.bot.status === 'Inactive' ? "red" : "white"}}>
+            {props.children}
         </li>
     );
 }
