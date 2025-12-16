@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/react-essentials-site/static/css/main.06833e0c.css",
-    "main.js": "/react-essentials-site/static/js/main.ce36f106.js",
+    "main.js": "/react-essentials-site/static/js/main.0cc6ff17.js",
     "static/js/453.df9bb20a.chunk.js": "/react-essentials-site/static/js/453.df9bb20a.chunk.js",
     "static/media/man-silhouette.png": "/react-essentials-site/static/media/man-silhouette.2368b2467a93a24a8504.png",
     "index.html": "/react-essentials-site/index.html",
     "main.06833e0c.css.map": "/react-essentials-site/static/css/main.06833e0c.css.map",
-    "main.ce36f106.js.map": "/react-essentials-site/static/js/main.ce36f106.js.map",
+    "main.0cc6ff17.js.map": "/react-essentials-site/static/js/main.0cc6ff17.js.map",
     "453.df9bb20a.chunk.js.map": "/react-essentials-site/static/js/453.df9bb20a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.06833e0c.css",
-    "static/js/main.ce36f106.js"
+    "static/js/main.0cc6ff17.js"
   ]
 }
