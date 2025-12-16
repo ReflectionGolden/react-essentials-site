@@ -3,10 +3,11 @@ import man from './man-silhouette.png';
 import woman from './woman-silhouette.png';
 import './App.css';
 import ModuleThreePage from './course_modules/Module3';
+import ModuleFourPage from './course_modules/Module4';
 import NavigationBar from './Navigation';
 
 function App() {
-  const [currentPage, setPage] = useState("3");
+  const [currentPage, setPage] = useState("4");
 
   function ChangePage(Module) {
     setPage(Module);
@@ -18,6 +19,8 @@ function App() {
         return(<ModuleTwoPage/>);
       case "3":
         return(<ModuleThreePage/>);
+      case "4":
+        return(<ModuleFourPage/>);
       default:
         return(<ModuleTwoPage/>);
     }
@@ -27,7 +30,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1>React Essentials Site</h1>
-        <p>This project is here to demonstrate the use of ReactJS for the creation of a website.</p>
+        <p>This project is here to demonstrate the use of ReactJS for the creation of a website/web app.</p>
       </header>
       <NavigationBar ChangePage={ChangePage}/>
       {SetModulePage(currentPage)}
@@ -42,7 +45,7 @@ function ModuleTwoPage() {
       <p>The components you see here were created in accordance with Module 2 of the React Essentials course by ITOL.</p>
       <div className='Component-Container'>
         <h2>Profile Card component</h2>
-        <p>These "Profile Cards" make use of a reusable component, showcasing componenets and their ability to be reused for display purposes. They make use of Props to be ableto send through images, names, job titles, and a bio for the person being referenced. Due to these being examples, I have chosen to use silhouette heads for the imagesand Lorem Ipsum text for the bios.</p>
+        <p>These "Profile Cards" make use of a reusable component, showcasing componenets and their ability to be reused for display purposes. They make use of Props to be able to send through images, names, job titles, and a bio for the person being referenced. Due to these being examples, I have chosen to use silhouette heads for the images and Lorem Ipsum text for the bios.</p>
         <ProfileCard 
           img={man} 
           name="John Smith"
