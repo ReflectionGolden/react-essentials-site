@@ -5,9 +5,10 @@ import './App.css';
 import ModuleThreePage from './course_modules/Module3';
 import ModuleFourPage from './course_modules/Module4';
 import NavigationBar from './Navigation';
+import ModuleFivePage from './course_modules/Module5';
 
 function App() {
-  const [currentPage, setPage] = useState("4");
+  const [currentPage, setPage] = useState("5");
 
   function ChangePage(Module) {
     setPage(Module);
@@ -21,6 +22,8 @@ function App() {
         return(<ModuleThreePage/>);
       case "4":
         return(<ModuleFourPage/>);
+      case "5":
+        return(<ModuleFivePage/>);
       default:
         return(<ModuleTwoPage/>);
     }
