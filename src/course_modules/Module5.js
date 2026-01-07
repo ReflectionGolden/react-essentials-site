@@ -93,6 +93,41 @@ function JobForm() {
     function handleDelete(id) {
         setJobs(jobs.filter(job => id !== job.id));
     }
+
+    function statusUpdateButtons(job, currentStatus) {
+        switch (currentStatus) {
+            case "pending":
+                return(<>
+                    <button style={{marginLeft: "5px"}} onClick={() => updateJobStatus(job.id, "running")}>Start</button>
+                    <button style={{marginLeft: "5px"}} onClick={() => updateJobStatus(job.id, "stopped")}>Cancel</button>
+                </>);
+            case "running":
+                return(<>
+                    <button style={{marginLeft: "5px"}} onClick={() => updateJobStatus(job.id, "completed")}>Complete</button>
+                    <button style={{marginLeft: "5px"}} onClick={() => updateJobStatus(job.id, "stopped")}>Cancel</button>
+                </>);
+            case "completed":
+                return(<>
+                    <button style={{marginLeft: "5px"}} onClick={() => updateJobStatus(job.id, "pending")}>Reschedule</button>
+                </>);
+            case "stopped":
+                return(<>
+                    <button style={{marginLeft: "5px"}} onClick={() => updateJobStatus(job.id, "pending")}>Reschedule</button>
+                </>);
+            default:
+                break;
+        }
+    }
+
+    function updateJobStatus(jobId, newStatus) {
+        let shallowJobs = [...jobs];
+        let shallowJobIndex = shallowJobs.findIndex(job => jobId === job.id);
+        let shallowJob = shallowJobs[shallowJobIndex];
+
+        shallowJob.status = newStatus;
+        shallowJobs[shallowJobIndex] = shallowJob;
+        setJobs(shallowJobs);
+    }
     
     return (
         <div>
@@ -101,6 +136,8 @@ function JobForm() {
                 This component demonstrates the use of multiple input types through the use of a job creation form including a number input with a built in minimum, a text input, a radio button selection, and a dropdown selection. It also includes validation for fields to be required, and clears the inputs when a job is successfully created.
                 <br />
                 I have also styled the form using a separate css file to make it visually better than just having the different inputs stacked on top of each other, and also increased input sizes for better readability.
+                <br />
+                Additionally, the job list includes the ability to change a job's status to demonstrate the ability to make changes to existing listed jobs (such as when a pending job is set to start running, or a pending/running job is cancelled, or to reschedule a job that has completed or been stopped).
             </p>
             <form className='Form-Container' onSubmit={e => handleSubmission(e)}>
                 <div className='idInput'>
@@ -158,6 +195,7 @@ function JobForm() {
                         <JobDisplayItem job={job}>
                             <p>ID: {job.id}, Name: {job.name}, Job Type: {job.type}, Status: {job.status}<StatusIcon Status={job.status}/></p>
                             <button style={{marginLeft: "5px"}} onClick={() => handleDelete(job.id)}>Delete</button>
+                            {statusUpdateButtons(job, job.status)}
                         </JobDisplayItem>
                     ))}
                 </ul>
