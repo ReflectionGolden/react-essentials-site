@@ -6,6 +6,7 @@ function NavigationBar({ChangePage}) {
             <ModuleButton ChangePage={ChangePage} module="2"/>
             <ModuleButton ChangePage={ChangePage} module="3"/>
             <ModuleButton ChangePage={ChangePage} module="4"/>
+            <ModuleButton ChangePage={ChangePage} module="5"/>
         </div>
     );
 }
