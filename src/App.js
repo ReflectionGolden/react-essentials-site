@@ -8,7 +8,7 @@ import ModuleFivePage from './course_modules/Module5';
 import NavigationBar from './Navigation';
 
 function App() {
-  const [currentPage, setPage] = useState("5");
+  const [currentPage, setPage] = useState("2");
 
   function ChangePage(Module) {
     setPage(Module);
