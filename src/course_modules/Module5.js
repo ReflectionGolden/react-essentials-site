@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Snackbar from '../snackbar.js';
 import '../App.css';
 import './module_styles/Module5.css';
 
@@ -9,6 +10,10 @@ import { faPersonRunning } from '@fortawesome/free-solid-svg-icons';
 import { faCircleCheck } from '@fortawesome/free-regular-svg-icons';
 import { faCircleXmark } from '@fortawesome/free-regular-svg-icons';
 
+const SnackbarType = {
+    success: "success",
+    fail: "fail"
+};
 
 function ModuleFivePage() {
     return (
@@ -27,6 +32,8 @@ function JobForm() {
     const [nameVal, setNameVal] = useState("");
     const [typeVal, setTypeVal] = useState("");
     const [statusVal, setStatusVal] = useState("");
+
+    const snackbarRef = useRef(null);
 
     const handleIdChange = (event) => {
         let id = event.target.value;
@@ -87,6 +94,7 @@ function JobForm() {
             setNameVal("");
             setTypeVal("");
             setStatusVal("");
+            snackbarRef.current.show()
         }
     }
 
@@ -186,6 +194,7 @@ function JobForm() {
 
                 <div className='jobSubmit'>
                     <button className='Generic-button' id="submit">Submit</button>
+                    <Snackbar ref={snackbarRef} type={SnackbarType.success} message="Job Submition Completed Successfully"/>
                 </div>
             </form>
             <div>

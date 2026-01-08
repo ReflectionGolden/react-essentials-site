@@ -4,8 +4,8 @@ import woman from './woman-silhouette.png';
 import './App.css';
 import ModuleThreePage from './course_modules/Module3';
 import ModuleFourPage from './course_modules/Module4';
-import NavigationBar from './Navigation';
 import ModuleFivePage from './course_modules/Module5';
+import NavigationBar from './Navigation';
 
 function App() {
   const [currentPage, setPage] = useState("5");
