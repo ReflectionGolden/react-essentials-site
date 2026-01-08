@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/react-essentials-site/static/css/main.06833e0c.css",
-    "main.js": "/react-essentials-site/static/js/main.0cc6ff17.js",
-    "static/js/453.df9bb20a.chunk.js": "/react-essentials-site/static/js/453.df9bb20a.chunk.js",
+    "main.css": "/react-essentials-site/static/css/main.4de5de18.css",
+    "main.js": "/react-essentials-site/static/js/main.e7e0e38d.js",
+    "static/js/453.3aadfab2.chunk.js": "/react-essentials-site/static/js/453.3aadfab2.chunk.js",
     "static/media/man-silhouette.png": "/react-essentials-site/static/media/man-silhouette.2368b2467a93a24a8504.png",
     "index.html": "/react-essentials-site/index.html",
-    "main.06833e0c.css.map": "/react-essentials-site/static/css/main.06833e0c.css.map",
-    "main.0cc6ff17.js.map": "/react-essentials-site/static/js/main.0cc6ff17.js.map",
-    "453.df9bb20a.chunk.js.map": "/react-essentials-site/static/js/453.df9bb20a.chunk.js.map"
+    "main.4de5de18.css.map": "/react-essentials-site/static/css/main.4de5de18.css.map",
+    "main.e7e0e38d.js.map": "/react-essentials-site/static/js/main.e7e0e38d.js.map",
+    "453.3aadfab2.chunk.js.map": "/react-essentials-site/static/js/453.3aadfab2.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.06833e0c.css",
-    "static/js/main.0cc6ff17.js"
+    "static/css/main.4de5de18.css",
+    "static/js/main.e7e0e38d.js"
   ]
 }
