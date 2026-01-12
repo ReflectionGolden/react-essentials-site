@@ -17,7 +17,7 @@ const Snackbar = forwardRef((props, ref) => {
     <div 
         className="snackbar"
         id={showSnackbar ? "show" : "hide"}
-        style={{backgroundColor: props.type == "success" ? "#006020F7" : "#600000F7"}}
+        style={{backgroundColor: props.type === "success" ? "#006020F7" : "#600000F7"}}
     >
       <div className="symbol">{props.type === "success" ? <FontAwesomeIcon icon={faCircleCheck} style={{color: "#00ff00",}} /> : <FontAwesomeIcon icon={faCircleXmark} style={{color: "#ff0000",}} />}</div>
       <div className="message">{props.message}</div>
