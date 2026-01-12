@@ -24,8 +24,6 @@ function App() {
         return(<ModuleFourPage/>);
       case "5":
         return(<ModuleFivePage/>);
-      case "6":
-        return(<ModuleSixPage/>);
       default:
         return(<ModuleTwoPage/>);
     }
