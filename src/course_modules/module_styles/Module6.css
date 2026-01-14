@@ -1,3 +1,4 @@
+/* Form Styling */
 .Form-Container {
   display: grid;
   grid-template-areas: 
@@ -76,4 +77,82 @@
 
 .Form-Container div.jobSubmit button {
     font-size: xx-large;
+}
+
+
+/* Job Display section styling */
+.Job-Display {
+  display: grid;
+  grid-template-areas: 
+  "DisplayTitle DisplayTitle DisplayTitle DisplayTitle"
+  "PendingJobsHead RunningJobsHead CompletedJobsHead StoppedJobsHead"
+  "PendingJobs RunningJobs CompletedJobs StoppedJobs";
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 3px;
+  background-color: antiquewhite;
+  padding: 5px;
+  margin: 5px 15%;
+}
+
+.Job-Display div {
+    background-color: #282c34;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.Job-Display div.Display-Head {
+    grid-area: DisplayTitle;
+}
+
+.Job-Display div.Pending-Head {
+    grid-area: PendingJobsHead;
+}
+
+.Job-Display div.Pending {
+    grid-area: PendingJobs;
+}
+
+div.Pending div {
+    display: block;
+}
+
+.Job-Display div.Running-Head {
+    grid-area: RunningJobsHead;
+}
+
+.Job-Display div.Running {
+    grid-area: RunningJobs;
+    display: block;
+}
+
+div.Running div {
+    display: block;
+}
+
+.Job-Display div.Complete-Head {
+    grid-area: CompletedJobsHead;
+}
+
+.Job-Display div.Complete {
+    grid-area: CompletedJobs;
+    display: block;
+}
+
+div.Complete div {
+    display: block;
+}
+
+.Job-Display div.Stopped-Head {
+    grid-area: StoppedJobsHead;
+}
+
+.Job-Display div.Stopped {
+    grid-area: StoppedJobs;
+    display: block;
+}
+
+div.Stopped div {
+    display: block;
 }

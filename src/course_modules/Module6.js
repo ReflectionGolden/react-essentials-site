@@ -210,19 +210,53 @@ function JobForm() {
                     <Snackbar ref={snackbarRef} type={SnackbarType.success} message="Job Submition Completed Successfully"/>
                 </div>
             </form>
-            <div>
-                <h2>Current Jobs List</h2>
-                <ul className='Listing'>
-                    {jobs.map(job => (
-                        <JobDisplayItem job={job}>
-                            <p>ID: {job.id}, Name: {job.name}, Job Type: {job.type.join("/")}, Status: {job.status}<StatusIcon Status={job.status}/></p>
-                            <button style={{marginLeft: "5px"}} onClick={() => handleDelete(job.id)}>Delete</button>
-                            {statusUpdateButtons(job, job.status)}
-                        </JobDisplayItem>
-                    ))}
-                </ul>
+            <div className='Job-Display'>
+                <div className='Display-Head'>
+                    <h2>Current Jobs List</h2>
+                </div>
+                <JobColumn jobs={jobs} status="pending" handleDelete={handleDelete} statusUpdateButtons={statusUpdateButtons}/>
+                <JobColumn jobs={jobs} status="running" handleDelete={handleDelete} statusUpdateButtons={statusUpdateButtons}/>
+                <JobColumn jobs={jobs} status="completed" handleDelete={handleDelete} statusUpdateButtons={statusUpdateButtons}/>
+                <JobColumn jobs={jobs} status="stopped" handleDelete={handleDelete} statusUpdateButtons={statusUpdateButtons}/>
             </div>
         </div>
+    );
+}
+
+function JobColumn(props) {
+    function HeaderClass(status) {
+        switch (status) {
+            case "pending":
+                return "Pending-Head";
+            case "running":
+                return "Running-Head";
+            case "completed":
+                return "Complete-Head";
+            case "stopped":
+                return "Stopped-Head";
+        }
+    }
+    return (
+        <>
+            <div className={HeaderClass(props.status)}>
+                <h3>{props.status.charAt(0).toUpperCase() + props.status.slice(1)} Jobs <StatusIcon Status={props.status}/></h3>
+            </div>
+            <div className={props.status.charAt(0).toUpperCase()}>
+                <div><JobMapper jobs={props.jobs} status={props.status} handleDelete={props.handleDelete} statusUpdateButtons={props.statusUpdateButtons}/></div>
+            </div>
+        </>
+    );
+}
+
+function JobMapper(props) {
+    return (
+        <>{props.jobs.filter(job => job.status === props.status).map(job => (
+            <JobDisplayItem job={job}>
+                <p>ID: {job.id}, Name: {job.name}, Job Type: {job.type.join("/")}, Status: {job.status}<StatusIcon Status={job.status}/></p>
+                <button style={{marginLeft: "5px"}} onClick={() => props.handleDelete(job.id)}>Delete</button>
+                {props.statusUpdateButtons(job, job.status)}
+            </JobDisplayItem>
+        ))}</>
     );
 }
 
