@@ -30,7 +30,7 @@ function JobForm() {
     const [jobs, setJobs] = useState([]);
     const [idVal, setIdVal] = useState("");
     const [nameVal, setNameVal] = useState("");
-    const [typeVal, setTypeVal] = useState("");
+    const [typeVal, setTypeVal] = useState([]);
     const [statusVal, setStatusVal] = useState("");
 
     const snackbarRef = useRef(null);
@@ -47,7 +47,17 @@ function JobForm() {
 
     const handleTypeChange = (event) => {
         let type = event.target.value;
-        setTypeVal(type);
+        if (typeVal.some(element => element === type)){
+            setTypeVal(typeVal.filter(element => type !== element).toSorted());
+        }
+        else {
+            setTypeVal([...typeVal, type].toSorted());
+        }
+    }
+
+    const clearTypes = (e) => {
+        e.preventDefault();
+        setTypeVal([]);
     }
 
     const handleStatusChange = (event) => {
@@ -71,9 +81,9 @@ function JobForm() {
         }
 
         //Type validation
-        if (typeVal === "") {
+        if (typeVal.length === 0) {
             formIsValid = false;
-            alert("Please select a job type.");
+            alert("Please select at least one job type.");
         }
 
         //Status validation
@@ -92,7 +102,7 @@ function JobForm() {
             console.log(jobs[jobs.length-1]);
             setIdVal("");
             setNameVal("");
-            setTypeVal("");
+            setTypeVal([]);
             setStatusVal("");
             snackbarRef.current.show()
         }
@@ -164,9 +174,10 @@ function JobForm() {
                     <div>
                         <label htmlFor="jobType">Job Type: </label><br />
                         <div>
-                            <TypeRadio typeLabel="Read Emails" typeID="readEmails" typeVal={typeVal} value="readEmailsJob" handleTypeChange={handleTypeChange}/><br />
-                            <TypeRadio typeLabel="Send Emails" typeID="sendEmails" typeVal={typeVal} value="sendEmailsJob" handleTypeChange={handleTypeChange}/><br />
-                            <TypeRadio typeLabel="Web Parsing" typeID="webParse" typeVal={typeVal} value="webParseJob" handleTypeChange={handleTypeChange}/><br />
+                            <TypeCheck typeLabel="Read Emails" typeID="readEmails" typeVal={typeVal} value="readEmailsJob" handleTypeChange={handleTypeChange}/><br />
+                            <TypeCheck typeLabel="Send Emails" typeID="sendEmails" typeVal={typeVal} value="sendEmailsJob" handleTypeChange={handleTypeChange}/><br />
+                            <TypeCheck typeLabel="Web Parsing" typeID="webParse" typeVal={typeVal} value="webParseJob" handleTypeChange={handleTypeChange}/><br />
+                            <button className='Generic-button' id='clearTypes' onClick={clearTypes}>Clear Types</button>
                         </div>
                     </div>
                 </div>
@@ -189,7 +200,7 @@ function JobForm() {
                         <span style={{textDecoration: "underline"}}>Job Preview:</span> <br />
                         ID: {idVal} <br />
                         Name: {nameVal} <br />
-                        Type: {typeVal} <br />
+                        Type: {typeVal.join("/")} <br />
                         Status: {statusVal}
                     </p>
                 </div>
@@ -204,7 +215,7 @@ function JobForm() {
                 <ul className='Listing'>
                     {jobs.map(job => (
                         <JobDisplayItem job={job}>
-                            <p>ID: {job.id}, Name: {job.name}, Job Type: {job.type}, Status: {job.status}<StatusIcon Status={job.status}/></p>
+                            <p>ID: {job.id}, Name: {job.name}, Job Type: {job.type.join("/")}, Status: {job.status}<StatusIcon Status={job.status}/></p>
                             <button style={{marginLeft: "5px"}} onClick={() => handleDelete(job.id)}>Delete</button>
                             {statusUpdateButtons(job, job.status)}
                         </JobDisplayItem>
@@ -223,10 +234,10 @@ function JobDisplayItem(props) {
     );
 }
 
-function TypeRadio({typeLabel, typeId, typeVal, value, handleTypeChange}) {
+function TypeCheck({typeLabel, typeId, typeVal, value, handleTypeChange}) {
     return (
         <>
-            <input type="radio" name="jobType" id={typeId} checked={typeVal === value} value={value} onChange={handleTypeChange}/>
+            <input type="checkbox" id={typeId} checked={typeVal.some(type => type === value)} value={value} onChange={handleTypeChange}/>
             <label htmlFor={typeId}>{typeLabel}</label>
         </>
     );
