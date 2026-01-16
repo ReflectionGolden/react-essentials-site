@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Snackbar from '../snackbar.js';
 import '../App.css';
@@ -9,6 +9,8 @@ import { faClipboardList } from '@fortawesome/free-solid-svg-icons';
 import { faPersonRunning } from '@fortawesome/free-solid-svg-icons';
 import { faCircleCheck } from '@fortawesome/free-regular-svg-icons';
 import { faCircleXmark } from '@fortawesome/free-regular-svg-icons';
+
+const storedJobs = localStorage.getItem("jobs")
 
 const SnackbarType = {
     success: "success",
@@ -27,7 +29,10 @@ function ModuleSixPage() {
 }
 
 function JobForm() {
-    const [jobs, setJobs] = useState([]);
+    const initialJobsState = storedJobs ? JSON.parse(storedJobs) : []
+
+    const [jobs, setJobs] = useState(initialJobsState);
+    useEffect(() => { localStorage.setItem("jobs",JSON.stringify(jobs)); }, [jobs]);
     const [idVal, setIdVal] = useState("");
     const [nameVal, setNameVal] = useState("");
     const [typeVal, setTypeVal] = useState([]);
@@ -112,6 +117,11 @@ function JobForm() {
         setJobs(jobs.filter(job => id !== job.id));
     }
 
+    function clearAllJobs() {
+        setJobs([]);
+        localStorage.removeItem("jobs");
+    }
+
     function statusUpdateButtons(job, currentStatus) {
         switch (currentStatus) {
             case "pending":
@@ -157,7 +167,7 @@ function JobForm() {
                 <br />
                 Secondly, the jobs have been separated into columns based on which status they currently have (for better user readability).
                 <br />
-                The third change is that it makes use of Local Storage nad useEffect to make created jobs persistent, allowing for switching between module pages while keeping this module's version of the job form data.
+                The third change is that it makes use of Local Storage and useEffect to make created jobs persistent, allowing for switching between module pages while keeping this module's version of the job form data. This is done by having useEffect set up to set the local storage version of the jobs list to the state version whenever it is changed (such as through adding or deleting a job), and using a constant which takes the local storage version of the job list and uses it as the initial state for the job list (unless it is empty or not there, in which case it will make the initial state an empty array).
             </p>
             <form className='Form-Container' onSubmit={e => handleSubmission(e)}>
                 <div className='idInput'>
@@ -219,6 +229,7 @@ function JobForm() {
                 <JobColumn jobs={jobs} status="completed" handleDelete={handleDelete} statusUpdateButtons={statusUpdateButtons}/>
                 <JobColumn jobs={jobs} status="stopped" handleDelete={handleDelete} statusUpdateButtons={statusUpdateButtons}/>
             </div>
+            <button className='Generic-button' onClick={clearAllJobs}>Clear Jobs</button>
         </div>
     );
 }
@@ -234,8 +245,11 @@ function JobColumn(props) {
                 return "Complete-Head";
             case "stopped":
                 return "Stopped-Head";
+            default:
+                break;
         }
     }
+
     return (
         <>
             <div className={HeaderClass(props.status)}>
@@ -250,13 +264,15 @@ function JobColumn(props) {
 
 function JobMapper(props) {
     return (
-        <>{props.jobs.filter(job => job.status === props.status).map(job => (
-            <JobDisplayItem job={job}>
-                <p>ID: {job.id}, Name: {job.name}, Job Type: {job.type.join("/")}, Status: {job.status}<StatusIcon Status={job.status}/></p>
-                <button style={{marginLeft: "5px"}} onClick={() => props.handleDelete(job.id)}>Delete</button>
-                {props.statusUpdateButtons(job, job.status)}
-            </JobDisplayItem>
-        ))}</>
+        <>
+            {props.jobs.filter(job => job.status === props.status).map(job => (
+                <JobDisplayItem job={job}>
+                    <p>ID: {job.id}, Name: {job.name}, Job Type: {job.type.join("/")}, Status: {job.status}<StatusIcon Status={job.status}/></p>
+                    <button style={{marginLeft: "5px"}} onClick={() => props.handleDelete(job.id)}>Delete</button>
+                    {props.statusUpdateButtons(job, job.status)}
+                </JobDisplayItem>
+            ))}
+        </>
     );
 }
 
