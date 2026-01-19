@@ -24,6 +24,10 @@ function ModuleSixPage() {
             <div className='Component-Container'>
                 <JobForm/>
             </div>
+            <div className='Component-Container'>
+                <h2>React Vite Tailwind Card</h2>
+                <p>For this Module 6 demonstration, please see the project in the following link: [Insert Link to Tailwind-Card project]</p>
+            </div>
         </div>
     );
 }
