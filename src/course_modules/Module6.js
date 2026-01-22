@@ -29,6 +29,14 @@ function ModuleSixPage() {
                 <h2>React Vite Tailwind Card</h2>
                 <p>For this Module 6 demonstration, please see the project in the following link: <a className='App-link' href="https://reflectiongolden.github.io/tailwind-card-app/" target="_blank">tailwind-card-app</a><a className='App-link' href="https://github.com/ReflectionGolden/tailwind-card-app" target="_blank"><FontAwesomeIcon icon={faGithub} /></a> (clicking the GitHub icon instead takes you to the project's GitHub repository page).</p>
             </div>
+            <div className='Component-Container'>
+                <h2>Investment Calculator App</h2>
+                <p>
+                    At the end of Module 6 is the first lesson and practical activity of the Investment Calculator App, but since the rest of this project is part of Module 7, I have moved every part of it in this React Essentials Site to the Module 7 page.
+                    <br />
+                    See the Module 7 page.
+                </p>
+            </div>
         </div>
     );
 }
