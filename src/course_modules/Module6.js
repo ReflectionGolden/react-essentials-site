@@ -9,6 +9,7 @@ import { faClipboardList } from '@fortawesome/free-solid-svg-icons';
 import { faPersonRunning } from '@fortawesome/free-solid-svg-icons';
 import { faCircleCheck } from '@fortawesome/free-regular-svg-icons';
 import { faCircleXmark } from '@fortawesome/free-regular-svg-icons';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
 
 const storedJobs = localStorage.getItem("jobs")
 
@@ -26,7 +27,7 @@ function ModuleSixPage() {
             </div>
             <div className='Component-Container'>
                 <h2>React Vite Tailwind Card</h2>
-                <p>For this Module 6 demonstration, please see the project in the following link: [Insert Link to Tailwind-Card project]</p>
+                <p>For this Module 6 demonstration, please see the project in the following link: <a className='App-link' href="https://reflectiongolden.github.io/tailwind-card-app/" target="_blank">tailwind-card-app</a><a className='App-link' href="https://github.com/ReflectionGolden/tailwind-card-app" target="_blank"><FontAwesomeIcon icon={faGithub} /></a> (clicking the GitHub icon instead takes you to the project's GitHub repository page).</p>
             </div>
         </div>
     );
@@ -165,7 +166,7 @@ function JobForm() {
         <div>
             <h2>Upgraded Job Form Component</h2>
             <p>
-                This component is uses the Job Form component from Module 5 as a foundation, but has had multiple changes made to it. These changes are as follows:
+                This component uses the Job Form component from Module 5 as a foundation, but has had multiple changes made to it. These changes are as follows:
                 <br />
                 First, the Job Type section has been altered so that a job can be assigned multiple types (such as for a job that could read emails then send them to relevant people).
                 <br />

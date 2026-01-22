@@ -25,6 +25,14 @@
   color: #61dafb;
 }
 
+.App-link:hover {
+  color: #45adca;
+}
+
+.App-link:active {
+  color: #1e7d97;
+}
+
 .Component-Container {
   border: 3px solid antiquewhite;
   border-radius: 2rem;
