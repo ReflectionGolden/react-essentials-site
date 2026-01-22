@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/react-essentials-site/static/css/main.4de5de18.css",
-    "main.js": "/react-essentials-site/static/js/main.e7e0e38d.js",
+    "main.css": "/react-essentials-site/static/css/main.215707ef.css",
+    "main.js": "/react-essentials-site/static/js/main.24e27072.js",
     "static/js/453.3aadfab2.chunk.js": "/react-essentials-site/static/js/453.3aadfab2.chunk.js",
     "static/media/man-silhouette.png": "/react-essentials-site/static/media/man-silhouette.2368b2467a93a24a8504.png",
     "index.html": "/react-essentials-site/index.html",
-    "main.4de5de18.css.map": "/react-essentials-site/static/css/main.4de5de18.css.map",
-    "main.e7e0e38d.js.map": "/react-essentials-site/static/js/main.e7e0e38d.js.map",
+    "main.215707ef.css.map": "/react-essentials-site/static/css/main.215707ef.css.map",
+    "main.24e27072.js.map": "/react-essentials-site/static/js/main.24e27072.js.map",
     "453.3aadfab2.chunk.js.map": "/react-essentials-site/static/js/453.3aadfab2.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.4de5de18.css",
-    "static/js/main.e7e0e38d.js"
+    "static/css/main.215707ef.css",
+    "static/js/main.24e27072.js"
   ]
 }
