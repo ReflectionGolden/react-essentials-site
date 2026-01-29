@@ -11,7 +11,7 @@ function ModuleEightPage() {
             <div className='Component-Container'>
                 <h2>Password Generator</h2>
                 <p>
-                    The Password Generator has been created as a separate project at my <a className='App-link' href="" target='_blank'>password-gen-project</a><a className='App-link' href="" target="_blank"><FontAwesomeIcon icon={faGithub}/></a> based on the skeleton app, lessons, and practical activities provided within module 8 the ITOL React Essentials course.
+                    The Password Generator has been created as a separate project at my <a className='App-link' href="" target='_blank'>password-gen-project</a><a className='App-link' href="" target="_blank"><FontAwesomeIcon icon={faGithub}/></a> based on the lessons and practical activities provided within module 8 of the ITOL React Essentials course.
                 </p>
             </div>
         </div>
