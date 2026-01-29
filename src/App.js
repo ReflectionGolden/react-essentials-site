@@ -2,12 +2,13 @@ import { useState } from 'react';
 import man from './man-silhouette.png';
 import woman from './woman-silhouette.png';
 import './App.css';
+import NavigationBar from './Navigation';
 import ModuleThreePage from './course_modules/Module3';
 import ModuleFourPage from './course_modules/Module4';
 import ModuleFivePage from './course_modules/Module5';
 import ModuleSixPage from './course_modules/Module6';
-import NavigationBar from './Navigation';
-import ModuleSevenPage from './course_modules/Module 7';
+import ModuleSevenPage from './course_modules/Module7';
+import ModuleEightPage from './course_modules/Module8';
 
 function App() {
   const [currentPage, setPage] = useState("2");
@@ -30,6 +31,8 @@ function App() {
         return(<ModuleSixPage/>);
       case "7":
         return(<ModuleSevenPage/>);
+      case "8":
+        return(<ModuleEightPage/>);
       default:
         return(<ModuleTwoPage/>);
     }
