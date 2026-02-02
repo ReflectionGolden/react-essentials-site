@@ -9,6 +9,7 @@ import ModuleFivePage from './course_modules/Module5';
 import ModuleSixPage from './course_modules/Module6';
 import ModuleSevenPage from './course_modules/Module7';
 import ModuleEightPage from './course_modules/Module8';
+import ModuleNinePage from './course_modules/Module9';
 
 function App() {
   const [currentPage, setPage] = useState("2");
@@ -33,6 +34,8 @@ function App() {
         return(<ModuleSevenPage/>);
       case "8":
         return(<ModuleEightPage/>);
+      case "9":
+        return(<ModuleNinePage/>);
       default:
         return(<ModuleTwoPage/>);
     }
