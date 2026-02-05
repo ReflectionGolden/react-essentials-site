@@ -34,7 +34,7 @@ function App() {
         return(<ModuleSevenPage/>);
       case "8":
         return(<ModuleEightPage/>);
-      case "9":
+      case "9&10":
         return(<ModuleNinePage/>);
       default:
         return(<ModuleTwoPage/>);
